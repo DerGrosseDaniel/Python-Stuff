@@ -15,16 +15,24 @@ f.close()
 
 
 for i, j in enumerate(lines):
-    if i % 2 == 0:
-       del lines[i]
+    words = lines[i].split()
 
+    if len(words) > 5:
+       #lines[i] = words[len(words)-1]
+       hour =  int(float(words[len(words)-1][0:2])) - 1
+       output = "%02d" % (hour,) + ":" + words[len(words)-1][3:]
+       print output
+    else:
+        del lines[i]
 
+#print lines
 
+'''
 f = tkFileDialog.asksaveasfile(mode='w')
 
-#f = open("output.txt","w")
 
 for line in lines:
     f.write(line)
 
 f.close()
+'''
